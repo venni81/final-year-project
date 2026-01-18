@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeaGuard - Smart Alerts for Safe Boat Travel</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <img src="Copilot_20260118_162244.png" alt="SeaGuard Logo" class="logo-img">
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#bookings">Bookings</a></li>
+                    <li><a href="#emergency">Emergency</a></li>
+                    <li><a href="#" class="btn-login" onclick="showLogin()">Login</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">SeaGuard</h1>
+                <p class="hero-subtitle">Smart Alerts for Safe Boat Travel & Emergency Response</p>
+                <p class="hero-description">Your trusted platform for emergency boat evacuation and tourism boat bookings</p>
+                <div class="hero-buttons">
+                    <a href="#bookings" class="btn btn-primary">Book a Boat</a>
+                    <a href="#emergency" class="btn btn-secondary">Emergency Alert</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Platform Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-life-ring"></i>
+                    </div>
+                    <h3>Emergency Services</h3>
+                    <p>Real-time boat evacuation alerts and coordination during floods and emergencies</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>Tourism Bookings</h3>
+                    <p>Book safe and certified boats for your recreational travel adventures</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3>Geo-Location</h3>
+                    <p>Find boats near you with integrated Google Maps location services</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3>Real-Time Alerts</h3>
+                    <p>Instant notifications via Firebase Cloud Messaging for emergencies</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Safety Certified</h3>
+                    <p>All boats are safety certified and verified by authorities</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="bookings" class="booking-section">
+        <div class="container">
+            <h2 class="section-title">Book a Boat</h2>
+            <div class="booking-wrapper">
+                <div class="booking-form-container">
+                    <form class="booking-form">
+                        <div class="form-group">
+                            <label><i class="fas fa-map-marker-alt"></i> Pickup Location</label>
+                            <input type="text" placeholder="Enter pickup location" id="pickup-location">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-map-marker-alt"></i> Destination</label>
+                            <input type="text" placeholder="Enter destination" id="destination">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label><i class="fas fa-calendar"></i> Start Date & Time</label>
+                                <input type="datetime-local" id="start-time">
+                            </div>
+                            <div class="form-group">
+                                <label><i class="fas fa-calendar"></i> End Date & Time</label>
+                                <input type="datetime-local" id="end-time">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-users"></i> Number of Passengers</label>
+                            <input type="number" min="1" placeholder="Number of passengers" id="passengers">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-ship"></i> Boat Type</label>
+                            <select id="boat-type">
+                                <option value="">Select boat type</option>
+                                <option value="speedboat">Speedboat</option>
+                                <option value="yacht">Yacht</option>
+                                <option value="ferry">Ferry</option>
+                                <option value="rescue_boat">Rescue Boat</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Search Available Boats</button>
+                    </form>
+                </div>
+                <div class="boats-list">
+                    <h3>Available Boats</h3>
+                    <div class="boat-card">
+                        <div class="boat-image">
+                            <i class="fas fa-ship"></i>
+                        </div>
+                        <div class="boat-info">
+                            <h4>Ocean Explorer</h4>
+                            <p class="boat-type"><i class="fas fa-tag"></i> Speedboat</p>
+                            <p class="boat-capacity"><i class="fas fa-users"></i> Capacity: 8 passengers</p>
+                            <p class="boat-price"><i class="fas fa-dollar-sign"></i> $120/hour</p>
+                            <div class="boat-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>4.5</span>
+                            </div>
+                            <button class="btn btn-primary btn-small">Book Now</button>
+                        </div>
+                    </div>
+                    <div class="boat-card">
+                        <div class="boat-image">
+                            <i class="fas fa-ship"></i>
+                        </div>
+                        <div class="boat-info">
+                            <h4>Royal Yacht</h4>
+                            <p class="boat-type"><i class="fas fa-tag"></i> Yacht</p>
+                            <p class="boat-capacity"><i class="fas fa-users"></i> Capacity: 20 passengers</p>
+                            <p class="boat-price"><i class="fas fa-dollar-sign"></i> $250/hour</p>
+                            <div class="boat-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>5.0</span>
+                            </div>
+                            <button class="btn btn-primary btn-small">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Alert Section -->
+    <section id="emergency" class="emergency-section">
+        <div class="container">
+            <h2 class="section-title">Emergency Alert System</h2>
+            <div class="emergency-wrapper">
+                <div class="emergency-form-container">
+                    <div class="emergency-banner">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h3>Report Emergency</h3>
+                        <p>Use this form to report flood, storm, or rescue emergencies</p>
+                    </div>
+                    <form class="emergency-form">
+                        <div class="form-group">
+                            <label><i class="fas fa-exclamation-circle"></i> Emergency Type</label>
+                            <select id="emergency-type" required>
+                                <option value="">Select emergency type</option>
+                                <option value="flood">Flood</option>
+                                <option value="storm">Storm</option>
+                                <option value="rescue">Rescue</option>
+                                <option value="medical">Medical Emergency</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-thermometer-half"></i> Severity Level</label>
+                            <select id="severity" required>
+                                <option value="">Select severity</option>
+                                <option value="low">Low</option>
+                                <option value="medium">Medium</option>
+                                <option value="high">High</option>
+                                <option value="critical">Critical</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-map-marker-alt"></i> Location</label>
+                            <input type="text" placeholder="Enter emergency location" id="emergency-location" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-users"></i> Affected People (Approx.)</label>
+                            <input type="number" min="0" placeholder="Number of people affected" id="affected-people">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-comment-alt"></i> Description</label>
+                            <textarea rows="4" placeholder="Provide detailed description of the emergency situation" id="emergency-description" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-emergency btn-block">
+                            <i class="fas fa-paper-plane"></i> Send Emergency Alert
+                        </button>
+                    </form>
+                </div>
+                <div class="emergency-info">
+                    <div class="info-card">
+                        <i class="fas fa-info-circle"></i>
+                        <h4>Emergency Response</h4>
+                        <p>Our system immediately notifies certified emergency-capable boats in your area when you report a critical or high-severity emergency.</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-phone"></i>
+                        <h4>Emergency Hotline</h4>
+                        <p>For immediate assistance, call: <strong>911</strong> or <strong>+1-800-SEAGUARD</strong></p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>Safety First</h4>
+                        <p>All participating boats are safety certified and equipped with emergency response equipment.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeLogin()">&times;</span>
+            <h2>Login to SeaGuard</h2>
+            
+            <!-- Login Type Tabs -->
+            <div class="login-tabs">
+                <button class="login-tab active" onclick="switchLoginType('customer')">
+                    <i class="fas fa-user"></i> Customer Login
+                </button>
+                <button class="login-tab" onclick="switchLoginType('boat-owner')">
+                    <i class="fas fa-ship"></i> Boat Owner Login
+                </button>
+            </div>
+
+            <!-- Customer Login Form -->
+            <form id="customerLoginForm" class="login-form active">
+                <div class="form-group">
+                    <label><i class="fas fa-envelope"></i> Email</label>
+                    <input type="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-lock"></i> Password</label>
+                    <input type="password" placeholder="Enter your password" required>
+                </div>
+                <div class="form-group-checkbox">
+                    <input type="checkbox" id="remember-customer">
+                    <label for="remember-customer">Remember me</label>
+                    <a href="#" class="forgot-password">Forgot password?</a>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Login as Customer</button>
+                <div class="login-footer">
+                    <p>Don't have an account? <a href="#" onclick="showRegister('customer')">Register as Customer</a></p>
+                </div>
+            </form>
+
+            <!-- Boat Owner Login Form -->
+            <form id="boatOwnerLoginForm" class="login-form">
+                <div class="form-group">
+                    <label><i class="fas fa-envelope"></i> Email</label>
+                    <input type="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-lock"></i> Password</label>
+                    <input type="password" placeholder="Enter your password" required>
+                </div>
+                <div class="form-group-checkbox">
+                    <input type="checkbox" id="remember-owner">
+                    <label for="remember-owner">Remember me</label>
+                    <a href="#" class="forgot-password">Forgot password?</a>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Login as Boat Owner</button>
+                <div class="login-footer">
+                    <p>Don't have an account? <a href="#" onclick="showRegister('boat-owner')">Register as Boat Owner</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <img src="Copilot_20260118_162244.png" alt="SeaGuard Logo" class="footer-logo">
+                    <p>Smart Alerts for Safe Boat Travel & Emergency Response</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#bookings">Bookings</a></li>
+                        <li><a href="#emergency">Emergency</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> contact@seaguard.com</li>
+                        <li><i class="fas fa-phone"></i> +1-800-SEAGUARD</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Ocean Drive, Coastal City</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SeaGuard. All rights reserved. | Final Semester Project</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showLogin() {
+            document.getElementById('loginModal').style.display = 'flex';
+            // Reset to customer login by default
+            switchLoginType('customer');
+        }
+
+        function closeLogin() {
+            document.getElementById('loginModal').style.display = 'none';
+        }
+
+        function switchLoginType(type) {
+            // Update tabs
+            const tabs = document.querySelectorAll('.login-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            if (type === 'customer') {
+                tabs[0].classList.add('active');
+                document.getElementById('customerLoginForm').classList.add('active');
+                document.getElementById('boatOwnerLoginForm').classList.remove('active');
+            } else {
+                tabs[1].classList.add('active');
+                document.getElementById('boatOwnerLoginForm').classList.add('active');
+                document.getElementById('customerLoginForm').classList.remove('active');
+            }
+        }
+
+        function showRegister(type) {
+            // Close login modal
+            closeLogin();
+            // You can add register modal here later
+            alert('Registration form will be available soon!');
+        }
+
+        // Handle form submissions
+        document.getElementById('customerLoginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Add your customer login logic here
+            alert('Customer login functionality will be connected to backend');
+        });
+
+        document.getElementById('boatOwnerLoginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Add your boat owner login logic here
+            alert('Boat Owner login functionality will be connected to backend');
+        });
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('loginModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
